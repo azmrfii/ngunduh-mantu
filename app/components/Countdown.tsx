@@ -41,19 +41,19 @@ const CountdownTimer = () => {
     <div className="flex space-x-4 mt-5 text-center font-legan">
       <div className="flex flex-col">
         <span className="text-4xl font-bold">{timeLeft.days}</span>
-        <span className="text-sm uppercase">Days</span>
+        <span className="text-sm uppercase">Hari</span>
       </div>
       <div className="flex flex-col">
         <span className="text-4xl font-bold">{timeLeft.hours}</span>
-        <span className="text-sm uppercase">Hours</span>
+        <span className="text-sm uppercase">Jam</span>
       </div>
       <div className="flex flex-col">
         <span className="text-4xl font-bold">{timeLeft.minutes}</span>
-        <span className="text-sm uppercase">Minutes</span>
+        <span className="text-sm uppercase">Menit</span>
       </div>
       <div className="flex flex-col">
         <span className="text-4xl font-bold">{timeLeft.seconds}</span>
-        <span className="text-sm uppercase">Seconds</span>
+        <span className="text-sm uppercase">Detik</span>
       </div>
     </div>
   );

@@ -2,12 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import { FaInstagram } from "react-icons/fa";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import CountdownTimer from "./Countdown";
-import Form from "./Form";
-import WishesList from "./WishesList";
 import { config } from "@/lib/config";
 
 type WeddingScreenProps = {
@@ -39,24 +36,10 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
   const { ref: mainRef, inView: isMainInView } = useInView({
     threshold: 0.5,
   });
-
   const { ref: main2Ref, inView: isMain2InView } = useInView({
     threshold: 0.5,
   });
-
   const { ref: slide1Ref, inView: isSlide1InView } = useInView({
-    threshold: 0.5,
-  });
-
-  const { ref: slide2Ref, inView: isSlide2InView } = useInView({
-    threshold: 0.5,
-  });
-
-  const { ref: slide3Ref, inView: isSlide3InView } = useInView({
-    threshold: 0.5,
-  });
-
-  const { ref: slide4Ref, inView: isSlide4InView } = useInView({
     threshold: 0.5,
   });
   const { ref: slide5Ref, inView: isSlide5InView } = useInView({
@@ -65,32 +48,9 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
   const { ref: slide6Ref, inView: isSlide6InView } = useInView({
     threshold: 0.5,
   });
-  const { ref: slide7Ref, inView: isSlide7InView } = useInView({
-    threshold: 0.5,
-  });
-  const { ref: slide8Ref, inView: isSlide8InView } = useInView({
-    threshold: 0.5,
-  });
-  const { ref: slide9Ref, inView: isSlide9InView } = useInView({
-    threshold: 0.5,
-  });
-  const { ref: slide10Ref, inView: isSlide10InView } = useInView({
-    threshold: 0.5,
-  });
   const { ref: endRef, inView: isEndInView } = useInView({
     threshold: 0.5,
   });
-
-  useEffect(() => {
-    const video = document.querySelector("iframe");
-    if (video) {
-      if (isSlide8InView) {
-        video.src += "&autoplay=1"; // Mulai video
-      } else {
-        video.src = video.src.replace("&autoplay=1", ""); // Hentikan video
-      }
-    }
-  }, [isSlide8InView]);
 
   return (
     <div
@@ -100,8 +60,11 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
       <div
         className="md:flex justify-center hidden items-end pb-12 w-2/3 h-1/2 md:h-full"
         style={{
-          backgroundImage: `url(/foto_1_samping.jpg)`, //refer to base 1st photo
-          backgroundSize: "cover",
+          backgroundImage: `
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url(/gambar_1.jpeg)
+          `,
+           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
@@ -121,25 +84,28 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
           <div className="text-center p-5 flex flex-col h-full justify-between py-20">
             <div className="gap-y-2 md:gap-y-4 flex flex-col">
               <h5
-                className={`text-sm font-legan text-white uppercase tracking-wide fadeMain2 ${isMain2InView ? "active" : ""
-                  } `}
+                className={`text-sm font-legan text-white uppercase tracking-wide fadeMain2 ${
+                  isMain2InView ? "active" : ""
+                } `}
                 ref={main2Ref}
               >
-                The Wedding Of
+                Ngunduh Mantu
               </h5>
               <h1
-                className={`text-2xl md:text-3xl font-ovo t text-white uppercase fadeMain ${isMainInView ? "active" : ""
-                  } `}
+                className={`text-2xl md:text-3xl font-ovo t text-white uppercase fadeMain ${
+                  isMainInView ? "active" : ""
+                } `}
                 ref={mainRef}
               >
                 {config.coupleNames}
               </h1>
               <h5
-                className={`text-sm  font-legan text-white uppercase tracking-wide  fadeMain2 ${isMain2InView ? "active" : ""
-                  } `}
+                className={`text-sm  font-legan text-white uppercase tracking-wide  fadeMain2 ${
+                  isMain2InView ? "active" : ""
+                } `}
                 ref={main2Ref}
               >
-                {new Date(config.eventDate).toLocaleDateString("en-US", {
+                {new Date(config.eventDate).toLocaleDateString("id-ID", {
                   weekday: "long",
                   year: "numeric",
                   month: "long",
@@ -149,14 +115,14 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
             </div>
             <div>
               <p className="mt-5 text-lg uppercase font-xs tracking-widest text-white">
-                {name ? `Dear ${name},` : "Welcome"}
+                {name ? `Dear ${name},` : "Selamat Datang"}
               </p>
               {!isOpen ? (
                 <button
                   className="animate-bounce  mt-5 px-5 py-1 uppercase text-xs border border-white hover:text-white hover:bg-transparent rounded-full bg-white text-black transition"
                   onClick={handleOpen}
                 >
-                  Open Invitation
+                  Buka Undangan
                 </button>
               ) : (
                 <IoIosArrowUp
@@ -169,11 +135,13 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
         </div>
         {isOpen && (
           <>
-            {/* Slide 1 */}
             <div
               className={`text-white h-screen flex pt-12 p-5 px-12 snap-start `}
               style={{
-                backgroundImage: `url(/slide_1.jpg)`,
+                backgroundImage: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(/gambar_1.jpeg)
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -188,162 +156,38 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
                 <p className="text-sm mt-5 font-legan">
                   {config.bibleVerseContent}
                 </p>
-                <p className="text-6xl mt-5 font-wonder">{config.coupleNames}</p>
-              </div>
-            </div>
-            {/* Slide 2 */}
-            <div
-              className={`text-white h-screen flex items-end pb-16 px-12 snap-start `}
-              style={{
-                backgroundImage: `url(/slide_2.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Display the content when the button is clicked */}
-              <div
-                ref={slide2Ref}
-                className={`fadeInMove ${isSlide2InView ? "active" : ""}  `}
-              >
-                <p className="font-legan text-sm my-2">The Groom</p>
-                <h1 className="text-xl md:text-3xl text-white  font-ovo">
-                  {config.groom}
-                </h1>
-                <h3 className="font-thesignature text-2xl">About {config.groomNickName},</h3>
-                <p className="text-sm mt-5 font-legan text-[#CCCCCC]">
-                  {config.groomBio}
+                <p className="text-6xl mt-5 font-wonder">
+                  {config.coupleNames}
                 </p>
-                <Link
-                  href={`https://www.instagram.com/${config.groomInstagram}`}
-                  target="_blank"
-                  className="cursor-pointer hover:bg-black text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-[#4E4E4E] w-fit px-4 py-2 text-[#CCCCCC]"
-                >
-                  <FaInstagram /> {config.groomInstagram}
-                </Link>
-              </div>
-            </div>
-            {/* Slide 3 */}
-            <div
-              className="snap-start  text-white h-screen flex items-end pb-16 px-12 "
-              style={{
-                backgroundImage: `url(/slide_3.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div
-                ref={slide3Ref}
-                className={`fadeInMove ${isSlide3InView ? "active" : ""}  `}
-              >
-                <p className="font-legan text-sm my-2">The Bride</p>
-                <h1 className="text-xl md:text-3xl text-white  font-ovo">
-                  {config.bride}
-                </h1>
-                <h3 className="font-thesignature text-2xl">About {config.brideNickName},</h3>
-                <p className="text-sm mt-5 font-legan text-[#CCCCCC]">
-                  {config.brideBio}
-                </p>
-                <Link
-                  href={`https://www.instagram.com/${config.brideInstagram}`}
-                  target="_blank"
-                  className="cursor-pointer hover:bg-black text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-[#4E4E4E] w-fit px-4 py-2 text-[#CCCCCC]"
-                >
-                  <FaInstagram /> {config.brideInstagram}
-                </Link>
-              </div>
-            </div>
-            {/* Slide 4 */}
-            <div
-              className="snap-start  text-white h-screen pt-8 flex px-12 "
-              style={{
-                backgroundImage: `url(/slide_4.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div>
-                <h1
-                  ref={slide4Ref}
-                  className={`text-xl md:text-5xl  text-white font-ovo fadeInMove ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  A journey in love
-                </h1>
-                <h3
-                  ref={slide4Ref}
-                  className={`uppercase font-legan text-xl mt-5 mb-2 fadeInMoveSlow ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  {config.timeline_1}
-                </h3>
-                <p
-                  ref={slide4Ref}
-                  className={`text-xs font-legan text-white fadeInLeftSlow ${isSlide4InView ? "active" : ""
-                    }`}
-                >
-                  {config.timeline_1_content}
-                </p>
-                <h3
-                  ref={slide4Ref}
-                  className={`uppercase font-legan text-xl mt-5 mb-2 fadeInMoveSlow ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  {config.timeline_2}
-                </h3>
-                <p
-                  ref={slide4Ref}
-                  className={`text-xs font-legan text-white fadeInLeftSlow ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  {config.timeline_2_content}
-                </p>
-                <h3
-                  ref={slide4Ref}
-                  className={`uppercase font-legan text-xl mt-5 mb-2 fadeInMoveSlow ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  {config.timeline_3}
-                </h3>
-                <p
-                  ref={slide4Ref}
-                  className={`text-xs font-legan text-white fadeInLeftSlow ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  {config.timeline_3_content}
-                </p>
-                <div
-                  ref={slide4Ref}
-                  className={`relative flex items-center mt-5 fadeInLeft ${isSlide4InView ? " active" : ""
-                    }`}
-                >
-                  <hr className="w-[120px] mx-2 border-t border-gray-300" />
-                  <span className="px-2 font-thesignature text-3xl">
-                    {config.coupleNames}
-                  </span>
-                </div>
               </div>
             </div>
             {/* Slide 5 */}
             <div
               className="snap-start  text-white h-screen flex flex-col items-center px-12 "
               style={{
-                backgroundImage: `url(/slide_5.jpg)`,
+                backgroundImage: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(/gambar_2.jpeg)
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
               <div
                 ref={slide5Ref}
-                className={` ${isSlide5InView ? "active" : ""
-                  }  fadeInMove flex items-center flex-col pt-32 `}
+                className={` ${
+                  isSlide5InView ? "active" : ""
+                }  fadeInMove flex items-center flex-col pt-32 `}
               >
                 <h3 className="uppercase font-legan text-xs tracking-wide mt-5 mb-2">
-                  save our date
+                  simpan tanggal kami
                 </h3>
-                <h1 className="text-2xl w-[200px] text-center text-white  font-ovo uppercase">
-                  {new Date(config.eventDate).toLocaleDateString("en-US", {
+                <h1 className="text-2xl w-[200px] text-center text-white font-ovo uppercase">
+                  {new Date(config.eventDate).toLocaleDateString("id-ID", {
                     weekday: "long",
-                  })} <br />  {new Date(config.eventDate).toLocaleDateString("en-US", {
+                  })}{" "}
+                  <br />{" "}
+                  {new Date(config.eventDate).toLocaleDateString("id-ID", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -352,33 +196,15 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
                 {config.holyMatrimony.enabled && (
                   <div className="mt-5 mx-auto flex flex-col items-center">
                     <h3 className="uppercase font-ovo text-sm text-center mt-5 mb-2">
-                      Holy Matrimony <br /> {config.holyMatrimony.time}
+                      Rumah Bu Tirah <br /> {config.holyMatrimony.time}
                     </h3>
-                    <p className="text-sm text-center  font-legan text-white">
-                      {config.holyMatrimony.place} <br /> {config.holyMatrimony.place_details}
+                    <p className="text-sm text-center font-legan text-white">
+                      {config.holyMatrimony.place_details}
                     </p>
                     <Link
                       href={config.holyMatrimony.googleMapsLink}
                       target="_blank"
-                      className="cursor-pointer hover:text-white/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-[#808080] w-fit px-4 py-2 text-white"
-                    >
-                      Google Maps
-                    </Link>
-                  </div>
-                )}
-
-                {config.weddingReception.enabled && (
-                  <div className="mt-5 mx-auto flex  flex-col items-center">
-                    <h3 className="uppercase font-ovo text-sm text-center mt-5 mb-2">
-                      Wedding Reception <br /> {config.weddingReception.time}
-                    </h3>
-                    <p className="text-sm text-center  font-legan text-white">
-                      {config.weddingReception.place} <br /> {config.weddingReception.place_details}
-                    </p>
-                    <Link
-                      href={config.weddingReception.googleMapsLink}
-                      target="_blank"
-                      className="cursor-pointer hover:text-white/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-[#808080] w-fit px-4 py-2 text-white"
+                      className="cursor-pointer hover:text-black/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-white w-fit px-4 py-2 text-black"
                     >
                       Google Maps
                     </Link>
@@ -386,161 +212,36 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
                 )}
               </div>
             </div>
-            {/* Slide 6 */}
             <div
               className="snap-start  text-white h-screen flex flex-col items-center justify-end pb-16 px-12 "
               style={{
-                backgroundImage: `url(/slide_6.jpg)`,
+                backgroundImage: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(/gambar_1.jpeg)
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
               <div
                 ref={slide6Ref}
-                className={` ${isSlide6InView ? "active" : ""
-                  }  fadeInMove flex items-center flex-col`}
+                className={` ${
+                  isSlide6InView ? "active" : ""
+                }  fadeInMove flex items-center flex-col`}
               >
                 <h1 className="text-2xl text-center text-white  font-ovo">
-                  ALMOST TIME FOR OURCELEBRATION
+                  WAKTU PERAYAAN KITA SUDAH DEKAT
                 </h1>
-                {/* Countdown Timer */}
                 <CountdownTimer />
               </div>
             </div>
-            {/* Slide 7 */}
-            {config.livestreaming.enabled && (
-              <div
-                className="snap-start  text-white h-screen flex flex-col justify-between pt-16 pb-32 px-12 "
-                style={{
-                  backgroundImage: `url(/foto_1_samping.jpg)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <h1
-                  ref={slide7Ref}
-                  className={`text-2xl text-white  font-ovo fadeInMoveSlow ${isSlide7InView ? "active" : ""
-                    }`}
-                >
-                  JOIN OUR EXCLUSIVE LIVE STREAMING EVENT
-                </h1>
-
-                <div
-                  className={`mt-5 mx-auto flex flex-col fadeInMove ${isSlide7InView ? "active" : ""
-                    }`}
-                  ref={slide7Ref}
-                >
-                  <h3 className="uppercase font-ovo text-sm mt-5 mb-2">
-                    {new Date(config.eventDate).toLocaleDateString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                    <br /> {config.livestreaming.time}
-                  </h3>
-                  <p className="text-sm font-legan text-white">
-                    {config.livestreaming.detail}
-                  </p>
-                  <Link
-                    href={config.livestreaming.link}
-                    target="_blank"
-                    className="cursor-pointer hover:text-white/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-[#3B3B3B] w-fit px-6 py-2 text-white"
-                  >
-                    Join Live Streaming
-                  </Link>
-                </div>
-              </div>)}
-            {/* SLIDE 8 */}
-            {config.prewedding.enabled && (
-              <div
-                className="snap-start text-white h-screen flex flex-col justify-center pt-16 pb-16 px-8 "
-                style={{
-                  backgroundImage: `url(/slide_8.jpg)`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div
-                  ref={slide8Ref}
-                  className={`${isSlide8InView ? "active" : ""} fadeInMove `}
-                >
-                  <h1 className="text-3xl text-white  font-ovo text-center uppercase">
-                    Unveiling Our Prewedding Story
-                  </h1>
-                  <div
-                    className="mt-10 mx-auto w-full max-w-2xl relative"
-                    style={{ paddingBottom: "56.25%", height: 0 }}
-                  >
-                    <iframe
-                      className="absolute top-0 left-0 w-full h-full"
-                      src={`https://www.youtube.com/embed/${config.prewedding.link}?autoplay=1&mute=1&loop=1`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-
-                  <div className="-mt-12 w-72 transform skew-x-6 drop-shadow">
-                    <p className="text-3xl font-thesignature text-white/80 ">
-                      {config.prewedding.detail}
-                    </p>
-                  </div>
-                </div>
-              </div>)}
-
-            {/* SLIDE 9 */}
-            {config.rsvp.enabled && (
-            <div
-              className="snap-start text-white h-screen flex flex-col justify-center pt-16 pb-16 px-8"
-              style={{
-                backgroundImage: `url(/slide_9.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div
-                ref={slide9Ref}
-                className={`${isSlide9InView ? "active" : ""} fadeInMove`}
-              >
-                <h1 className="text-3xl text-white font-ovo text-center uppercase">
-                  RSVP AND WISHES
-                </h1>
-                <p className="text-sm font-legan text-white/80 text-center">
-                {config.rsvp.detail}
-                </p>
-
-                <Form />
-              </div>
-            </div>
-            )}
-
-            {/* SLIDE 10 */}
-            <div
-              className="snap-start text-white h-screen flex flex-col justify-center pt-16 pb-16 px-8"
-              style={{
-                backgroundImage: `url(/slide_9.jpg)`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div
-                ref={slide10Ref}
-                className={`${isSlide10InView ? "active" : ""} fadeInMove`}
-              >
-                <h1 className="text-3xl text-white font-ovo text-center uppercase">
-                  Wishes
-                </h1>
-                <WishesList />
-              </div>
-            </div>
-
-            {/* SLIDE AKHIR */}
             <div
               className="snap-start text-white h-screen flex flex-col justify-end pt-16 pb-16 px-12 "
               style={{
-                backgroundImage: `url(/slide_7.jpg)`,
+                backgroundImage: `
+                  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                  url(/gambar_2.jpeg)
+                `,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -565,9 +266,16 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
 
               <footer className="flex flex-col items-center mt-8">
                 <p className="text-[0.5rem] uppercase text-center">
-                  Created By Peter Shaan
+                  Created By
+                  <a
+                    href="http://azzamrafizafran.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Azmrfii
+                  </a>
                 </p>
-                <p className="text-xs">© All rights reserved by petershaan</p>
+                <p className="text-xs">© All rights reserved by Azmrfii</p>
               </footer>
             </div>
           </>
