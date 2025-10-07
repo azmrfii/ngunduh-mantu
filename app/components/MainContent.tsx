@@ -199,16 +199,16 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
                     day: "numeric",
                   })}
                 </h1>
-                {config.holyMatrimony.enabled && (
+                {config.location.enabled && (
                   <div className="mt-5 mx-auto flex flex-col items-center">
                     <h3 className="uppercase font-ovo text-sm text-center mt-5 mb-2">
-                      Rumah Bu Tirah <br /> {config.holyMatrimony.time}
+                      Rumah Bu Tirah <br /> {config.location.time}
                     </h3>
                     <p className="text-sm text-center font-legan text-white">
-                      {config.holyMatrimony.place_details}
+                      {config.location.place_details}
                     </p>
                     {/* <Link
-                      href={config.holyMatrimony.googleMapsLink}
+                      href={config.location.googleMapsLink}
                       target="_blank"
                       className="cursor-pointer hover:text-black/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-white w-fit px-4 py-2 text-black"
                     >

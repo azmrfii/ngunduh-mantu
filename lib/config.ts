@@ -17,7 +17,7 @@ export const config = {
     timeline_2_content: process.env.NEXT_PUBLIC_YEAR_2_CONTENT || "Default Timeline 2 Content",
     timeline_3: process.env.NEXT_PUBLIC_YEAR_3 || "Default Timeline 3",
     timeline_3_content: process.env.NEXT_PUBLIC_YEAR_3_CONTENT || "Default Timeline 3 Content",
-    holyMatrimony: {
+    location: {
         enabled: process.env.NEXT_PUBLIC_LOCATION === 'true',
         time: process.env.NEXT_PUBLIC_LOCATION_TIME || "00:00",
         place: process.env.NEXT_PUBLIC_LOCATION_PLACE || "Default Church",
