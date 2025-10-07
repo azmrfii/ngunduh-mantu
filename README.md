@@ -1,125 +1,88 @@
-<p href="#" align="center">
-  <img alt=" Weedingly Free – an open-source wedding invitation." src="public/remove_me/logo.png" width="100" >
-  <h1 align="center">Weedingly</h1>
+<p align="center">
+  <h1 align="center">Ngunduh Mantu & Wedding Invitation</h1>
   <p align="center">
-        Made with ❤️ by <a ref="https://github.com/petershaan12">Peter Shaan</a>.
-    </p>
+    Dipersembahkan dengan ❤️ oleh <a href="https://github.com/azmrfii">Azmrfii</a>.
+  </p>
 </p>
 
 <p align="center">
-  Weedingly Free – an open-source wedding invitation. </br>
+  Template undangan pernikahan modern dan *open-source* yang siap digunakan. </br>
 </p>
 
 <p align="center">
- <a href="https://nextjs.org/">
-       <img alt="Next.js logo" src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" height="75">
-    </a>
-    <a href="https://www.mongodb.com/">
-        <img src="https://cdn.iconscout.com/icon/free/png-256/mongodb-5-1175140.png" height="75">
-    </a>
-    <a href="https://vercel.com"><img alt="Vercel logo" src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000"></a>
-     <a href="https://github.com/petershaan12/Weddingly-Free/blob/main/LICENSE">
-        <img src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000" />
-    </a>
+  <a href="https://nextjs.org/">
+    <img alt="Next.js logo" src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" height="75">
+  </a>
+  <a href="https://vercel.com"><img alt="Vercel logo" src="https://img.shields.io/badge/Deploy%20on%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000"></a>
+  <a href="https://github.com/azmrfii/ngunduh-mantu/blob/main/LICENSE">
+    <img src="https://img.shields.io/npm/l/next.svg?style=for-the-badge&labelColor=000000" />
+  </a>
 </p>
 
-## About
+---
 
-This is a modern and fully customizable wedding invitation template built using **Next.js**, **TypeScript**, **TailwindCSS**, **react-type-animation**, and **react-intersection-observer**. It's designed to be user-friendly, allowing couples to personalize their wedding details easily.
+## Tentang Proyek Ini
 
-## RSVP Feature with MongoDB
+Ini adalah template undangan pernikahan digital modern dan **sepenuhnya dapat disesuaikan (customizable)** yang telah saya modifikasi. Dibangun di atas **Next.js** dan **TypeScript**, template ini dirancang untuk mudah digunakan, memungkinkan Anda memasukkan detail pernikahan Anda dengan cepat dan elegan.
 
-Weedingly includes a built-in RSVP feature that allows guests to confirm their attendance easily. The RSVP form can be customized to include additional questions or information as needed. The responses are stored in a database for easy management and tracking.
+Proyek ini terinspirasi dari template **Weedingly Free** oleh Peter Shaan dan mengadopsi struktur desain dari [Groove Public](https://groovepublic.com/reveused/). Saya telah melakukan improvisasi dan penyesuaian untuk proyek pribadi saya (`ngunduh-mantu`), dan sekarang membagikannya kembali sebagai sumber terbuka 🥳😃.
 
 ---
 
-This project was inspired by the beautiful designs found on [Groove Public](https://groovepublic.com/reveused/). You can edit, improvise, and customize the template to suit your unique wedding theme and preferences. Feel free to add your personal touch and make it truly yours 🥳😃.
+## Fitur Utama
+
+- **Teknologi Modern:** Dibangun menggunakan **Next.js, TypeScript, dan TailwindCSS** untuk performa cepat, skalabilitas, dan pengembangan UI yang efisien.
+- **Efek Interaktif:** Menggunakan `react-type-animation` untuk teks efek mesin ketik dan `react-intersection-observer` untuk animasi *scroll* yang mulus.
+- **Desain Responsif:** Tampilan yang bekerja sempurna di berbagai ukuran layar (desktop, tablet, dan *mobile*).
+- **Konfigurasi Dinamis:** Detail pernikahan (tanggal, lokasi, tautan) mudah diperbarui melalui **variabel lingkungan** (`.env.local`).
 
 ---
 
-## Features
+## Cara Menggunakan
 
-- **Next.js + TypeScript**: A modern framework for building fast and scalable web applications.
-- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
-- **react-type-animation**: Animate typewriter-style text on your invitation.
-- **react-intersection-observer**: Enable smooth animations as the user scrolls.
-- **Dynamic Configuration**: Use environment variables to update wedding details like dates, locations, and Google Maps links.
-- **Responsive Design**: Fully responsive design that works on various screen sizes.
-- **RSVP Management**: Easily manage guest responses with a built-in RSVP feature.
-- **MongoDB Integration**: Store and manage RSVP data using MongoDB.
-- **Customizable RSVP Form**: Tailor the RSVP form to include additional questions or information.
-- **RSVP Tracking**: Keep track of guest responses and manage attendance efficiently.
-
----
-
-## How to Use
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/petershaan12/wedding-invitation.git
-   cd wedding-invitation
-   npm i
-   ```
-2. **Set up environment variables: Create a .env.local file in your root directory and add the following in .env.example**
-3. **Create Database in MongoDB**:
-   Create a new database in MongoDB and name it `wish`. Inside this database, create a collection named `wishes`.
-4. **Run The Project**
+1. **Kloning Repositori:**
 
     ```bash
+    git clone [https://github.com/azmrfii/ngunduh-mantu.git](https://github.com/azmrfii/ngunduh-mantu.git)
+    cd ngunduh-mantu
+    ```
+2. **Instal Dependencies:**
+    ```bash
     npm install
+    ```
+3. **Set up Environment Variables:**
+    Buat file **`.env.local`** di *root directory* dan isi dengan variabel yang dibutuhkan (lihat file `.env.example` sebagai referensi).
+4. **Konfigurasi Database:**
+    Di MongoDB, buat *database* bernama `wish` dan di dalamnya buat *collection* bernama `wishes` untuk menampung data RSVP tamu.
+5. **Jalankan Proyek Lokal:**
+    ```bash
     npm run dev
     ```
+6. **Deploy ke Vercel:**
+    Anda dapat dengan mudah mendeploy ke Vercel menggunakan Vercel CLI setelah menginstal dan menghubungkan akun Anda:
+    ```bash
+    npm install -g vercel
+    vercel
+    ```
 
-5. **Deploy to Vercel**:
+---
 
-    You can easily deploy your project to Vercel by following these steps:
+## Kustomisasi Cepat
 
-    - If you don't have a Vercel account, sign up at [vercel.com](https://vercel.com/).
-    - Install the Vercel CLI:
+Anda dapat menyesuaikan hampir semua detail pernikahan Anda melalui variabel lingkungan dan file di folder `public`:
 
-      ```bash
-      npm install -g vercel
-      ```
+* Nama Pernikahan, Tanggal, dan *Countdown*.
+* Musik di `public/music/wedding_song.mp3`.
+* Gambar *Slider* di `public/slide_1` hingga `slide_9`.
+* Gambar *Fade-in* dan gambar *desktop view* di folder `public`.
+* Detail Acara, Tautan Google Maps, dan Tautan *Live Streaming* YouTube.
+* **Video YouTube:** Embed video menggunakan kode *iframe*.
+* **Personalisasi Nama Tamu:** Atur URL dengan `ex: https://[URL_ANDA]/to:peter` untuk menyambut tamu secara spesifik.
 
-    - Run the following command in your project directory:
+---
 
-      ```bash
-      vercel
-      ```
+## Kontribusi & Lisensi
 
-    - Follow the prompts to link your project to your Vercel account and deploy it.
+Proyek ini terbuka untuk kontribusi! Silakan *fork* dan ajukan *pull requests* jika Anda memiliki fitur atau perbaikan.
 
-    Your wedding invitation will be live and accessible via the URL provided by Vercel.
-
-## Contributing
-
-This project is open to contributions. Feel free to fork it, improve it, or submit pull requests with new features or fixes.
-
-## Customization
-
-You can customize the following via environment variables:
-
-* Wedding Name, Dates, Countdown
-* Your OWN RSVP
-* Music in `public\music\wedding_song.mp3`
-* Picture in the public folder
-
-  * `public/slide_1 to slide_9` for the slider images on each slide.
-  * `public/foto_1_samping` for the desktop view picture.
-  * `public/foto_1 to foto_4` for fade-in animations at the start of the page.
-* Event Details (Holy Matrimony & Wedding Reception)
-* Google Maps Links
-* Youtube Links For Streaming
-* YouTube Code Embed for Video : Embed YouTube videos using iframe code and take the foto like below
-
-<p align="center">
-<img src="public/remove_me/take_this.png" width="280" height="200" style="margin:auto" />
-</p>
-
-* Custom Guest Names: If you'd like to personalize guest names such as Dear Peter or to:John, set your url with "to:".
-  ex (`https://wedding-invitation-five-black.vercel.app/to:peter`)
-
-## License
-
-This template is provided under the MIT License. You are free to use, modify, and distribute it.
+Template ini disediakan di bawah **MIT License**. Anda bebas menggunakan, memodifikasi, dan mendistribusikannya.
