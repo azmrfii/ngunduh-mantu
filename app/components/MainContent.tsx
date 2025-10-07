@@ -115,7 +115,13 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
             </div>
             <div>
               <p className="mt-5 text-lg uppercase font-xs tracking-widest text-white">
-                {name ? `Dear ${name},` : "Selamat Datang"}
+                {name ? (
+                  <>
+                    Turut mengundang <br /> {name}
+                  </>
+                ) : (
+                  "Kepada tamu undangan"
+                )}
               </p>
               {!isOpen ? (
                 <button
