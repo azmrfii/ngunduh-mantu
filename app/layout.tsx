@@ -30,8 +30,10 @@ const ovo = Ovo({
 
 
 export const metadata: Metadata = {
-  title: `The Wedding of ${config.coupleNames}`,
-  description: `Wedding Invitation of ${config.coupleNames}, made by Peter Shaan`,
+  title: `Ngunduh Mantu ${config.coupleNames}`,
+  description: `Undangan ngunduh mantu ${config.coupleNames} yang akan di selenggarakan pada ${new Date(
+    config.eventDate
+  ).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" })}  . Klik untuk membuka undangan.`,
 };
 
 export default function RootLayout({
