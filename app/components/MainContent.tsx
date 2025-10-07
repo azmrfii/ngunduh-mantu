@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import CountdownTimer from "./Countdown";
 import { config } from "@/lib/config";
@@ -207,13 +206,6 @@ const WeddingScreen = ({ name }: WeddingScreenProps) => {
                     <p className="text-sm text-center font-legan text-white">
                       {config.location.place_details}
                     </p>
-                    {/* <Link
-                      href={config.location.googleMapsLink}
-                      target="_blank"
-                      className="cursor-pointer hover:text-black/20 text-sm rounded-full flex items-center gap-x-2 text-center font-legan mt-5 bg-white w-fit px-4 py-2 text-black"
-                    >
-                      Google Maps
-                    </Link> */}
                   </div>
                 )}
               </div>
