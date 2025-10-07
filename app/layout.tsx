@@ -28,7 +28,6 @@ const ovo = Ovo({
   variable: "--font-ovo",
 });
 
-
 export const metadata: Metadata = {
   title: `Ngunduh Mantu ${config.coupleNames}`,
   description: `Undangan ngunduh mantu ${config.coupleNames} yang akan di selenggarakan pada ${new Date(
